@@ -1,8 +1,9 @@
+import Navbar from './Components/Navbar/Navbar';
 import './App.css';
 function App() {
   return (
     <div>
-      <h1>Nuruzzzamaam</h1>
+      <Navbar></Navbar>
     </div>
   );
 }
