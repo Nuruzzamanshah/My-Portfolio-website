@@ -17,7 +17,7 @@ const Intro = () => {
                 <div className='i-name'>
                     <span>Hy! I Am</span>
                     <span>Nuruzzaman</span>
-                    <span>Front-end web development is the development of the graphical user interface of a website</span>
+                    <span>Front-end web development </span>
                 </div>
                 <button className='button i-button'>Hire Me</button>
                 <div className='i-icons'>
@@ -36,6 +36,15 @@ const Intro = () => {
                 <div style={{top: '18rem', left: '0rem'}}>
                     <FloatingDiv image={Thumbup} text1='Best Design' text2='Nuruzzzaman'></FloatingDiv>
                 </div>
+
+                <div className='blue' style={{background: 'rgb(238 210 255)'}}></div>
+                <div className='blue' style={{
+                    background: '#c1f5ff',
+                    top: '17rem',
+                    width: '21rem',
+                    height: '11rem',
+                    left: '-9rem',
+                    }}></div>
             </div>
         </div>
     );
