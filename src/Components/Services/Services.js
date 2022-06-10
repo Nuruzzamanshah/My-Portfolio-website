@@ -1,50 +1,84 @@
-import React from 'react';
-import './Services.css';
-import HeartEmoji from '../../img/heartemoji.png';
-import Glasses from '../../img/glasses.png';
-import Humble from '../../img/humble.png';
-import Card from './../Card/Card';
+import React, { useContext } from "react";
+import "./Services.css";
+import Card from "../Card/Card";
+import HeartEmoji from "../../img/heartemoji.png";
+import Glasses from "../../img/glasses.png";
+import Humble from "../../img/humble.png";
+import { themeContext } from "../../Context";
+import { motion } from "framer-motion";
 import Resume from './Resume .pdf';
 
 const Services = () => {
-    return (
-        <div className='services'>
-            <div className='awesome'>
-                <span>My Awesome</span>
-                <span>Services</span>
-                <span>hjhasldkfdshfadskhfksjdfjkkkkkkkhajkafhdsjfhdssjhfdsjfdh</span>
-                <a href={Resume} download><button className='button s-button'>Downlode Resume</button></a>
-                <div className='blur s-blur1' style={{background: '#abf1ff94'}}></div>
-            </div>
-            <div className='cards'>
-                <div style={{left: '27rem'}}>
-                    <Card
-                    emoji= {HeartEmoji}
-                    heading = {'Design'}
-                    detail= {'Figma, Sketch, Photoshop, photopea'}
-                    />
-                </div>
+  // context
+  const theme = useContext(themeContext);
+  // const darkMode = theme.state.darkMode;
 
-                <div style={{ top: '12rem', left: '5rem'}}>
-                    <Card
-                    emoji={Glasses}
-                    heading={'Developer'}
-                    detail={"Html5, Css3, JavaScript, React js"}
-                    />
-                </div>
-                
-                <div style={{ top: '25rem', left: '27rem'}}>
-                    <Card
-                    emoji={Humble}
-                    heading={'UI/UX'}
-                    detail={"Html5, Css3, JavaScript, React js"}
-                    />
-                </div>
-                
-            </div>
-        </div>
-        
-    );
+  // transition
+  const transition = {
+    duration: 1,
+    type: "spring",
+  };
+
+  return (
+    <div className="services" id="services">
+      {/* left side */}
+      <div className="awesome">
+        {/* dark mode */}
+        <span>My Awesome</span>
+        <span>services</span>
+        <a href={Resume} download>
+          <button className="button s-button">Download Resume</button>
+        </a>
+        <div className="blur s-blur1" style={{ background: "#ABF1FF94" }}></div>
+      </div>
+      {/* right */}
+      <div className="cards">
+        {/* first card */}
+        <motion.div
+          initial={{ left: "25rem" }}
+          whileInView={{ left: "14rem" }}
+          transition={transition}
+        >
+          <Card
+            emoji={HeartEmoji}
+            heading={"Design"}
+            detail={"Figma, Sketch, Photoshop"}
+          />
+        </motion.div>
+        {/* second card */}
+        <motion.div
+          initial={{ left: "-11rem", top: "12rem" }}
+          whileInView={{ left: "-4rem" }}
+          transition={transition}
+        >
+          <Card
+            emoji={Glasses}
+            heading={"Developer"}
+            detail={"Html, Css, JavaScript, React, Nodejs, Express"}
+          />
+        </motion.div>
+        {/* 3rd */}
+        <motion.div
+          initial={{ top: "19rem", left: "25rem" }}
+          whileInView={{ left: "12rem" }}
+          transition={transition}
+        >
+          <Card
+            emoji={Humble}
+            heading={"UI/UX"}
+            detail={
+              "Get your daily fill of UX design, user research, user experience strategy, interaction design, and design thinking stories."
+            }
+            color="rgba(252, 166, 31, 0.45)"
+          />
+        </motion.div>
+        <div
+          className="blur s-blur2"
+          style={{ background: "var(--purple)" }}
+        ></div>
+      </div>
+    </div>
+  );
 };
 
 export default Services;
